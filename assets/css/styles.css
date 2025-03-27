@@ -628,7 +628,22 @@ h2 {
     max-width: 100%; /* Supprime la largeur maximale pour les petits écrans */
     gap: 0px; /* Supprime l'espacement global entre les sections */
   }
-
+  footer {
+    height: 30px;;
+    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0; /* Positionne le footer en bas */
+    left: 0; /* Aligne le footer à gauche */
+    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
+    z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
+    background: var(--background-color); /* Couleur de fond du footer */
+    color: var(--text-color); /* Couleur du texte */
+    text-align: center; /* Centre le texte */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    padding: 5px 10px; /* Réduit l'espace intérieur */
+  }
+  
   .navbar {
     flex-direction: row; /* Aligne les icônes horizontalement */
     flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
@@ -771,26 +786,38 @@ h2 {
 @media (max-width: 375px) {
   .navbar {
     flex-direction: row; /* Aligne les icônes horizontalement */
-    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
-    justify-content: space-evenly; /* Répartit les icônes uniformément */
-    gap: 2px; /* Réduit l'espacement entre les icônes */
-    padding: 5px; /* Réduit le padding pour économiser de l'espace */
-    width: 100%; /* La navbar occupe toute la largeur */
-    margin: 0; /* Supprime les marges */
+    flex-wrap: nowrap; /* Permet aux icônes de passer à la ligne */
+    justify-content: space-between; /* Centre les icônes horizontalement */
+    gap: 1px; /* Réduit l'espacement global entre les icônes */
+    width: 100%; La navbar occupe toute la largeur */
   }
 
   .icon-container {
-    width: 25px; /* Réduit la largeur des conteneurs d'icônes */
-    gap: 2px; /* Réduit l'espacement entre l'icône et le texte */
+    width: 16px; /* Réduit la largeur des conteneurs d'icônes */
+    gap: 2px; /* Réduit l'espacement autour des conteneurs */
   }
 
   .icon {
-    width: 25px; /* Réduit la taille des icônes */
-    height: 25px; /* Assure une hauteur fixe */
+    width: 16px; /* Réduit la taille des icônes */
+    height: 16px; /* Assure une hauteur fixe */
   }
 
   .icon-text {
-    font-size: 8px; /* Réduit la taille du texte sous les icônes */
+    display: none;
+        font-size: 2px; /* Réduit la taille du texte sous les icônes */
+    margin-top: 1px; /* Réduit l'espace entre l'icône et le texte */
+  }
+
+  ul.icon-menu {
+    display: flex; /* Utilise Flexbox pour aligner les icônes horizontalement */
+    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne suivante */
+    justify-content: space-evenly; /* Répartit les icônes uniformément */
+    align-items: center; /* Centre les icônes verticalement */
+    gap: 16px; /* Réduit l'espacement entre les icônes */
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0 auto; /* Centre la liste horizontalement */
+    width: 100%; /* Assure que la liste occupe toute la largeur */
   }
 }
 
