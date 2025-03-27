@@ -631,26 +631,26 @@ h2 {
 
   .navbar {
     flex-direction: row; /* Aligne les icônes horizontalement */
-    flex-wrap: wrap; /* Permet aux icônes de passer à la ligne si nécessaire */
-    justify-content: center; /* Centre les icônes horizontalement */
-    gap: 10px; /* Réduit l'espacement entre les icônes */
-    padding: 10px; /* Réduit le padding pour économiser de l'espace */
+    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
+    justify-content: space-evenly; /* Répartit les icônes uniformément */
+    gap: 2px; /* Réduit l'espacement entre les icônes */
+    padding: 5px; /* Réduit le padding pour économiser de l'espace */
     width: 100%; /* La navbar occupe toute la largeur */
     margin: 0; /* Supprime les marges */
   }
 
   .icon-container {
-    width: 50px; /* Réduit la taille des conteneurs d'icônes */
-    gap: 3px; /* Réduit l'espacement entre l'icône et le texte */
+    width: 35px; /* Réduit la taille des conteneurs d'icônes */
+    gap: 1px; /* Réduit l'espacement entre l'icône et le texte */
   }
 
   .icon {
-    width: 40px; /* Réduit la taille des icônes */
-    height: 40px; /* Assure une hauteur fixe */
+    width: 25px; /* Réduit la taille des icônes */
+    height: 25px; /* Assure une hauteur fixe */
   }
 
   .icon-text {
-    font-size: 10px; /* Réduit la taille du texte sous les icônes */
+    font-size: 7px; /* Réduit la taille du texte sous les icônes */
   }
 
   .icon-menu {
@@ -767,6 +767,59 @@ h2 {
   }
 }
 
+/* Ajustements pour les très petits écrans (iPhone 8) */
+@media (max-width: 375px) {
+  .navbar {
+    flex-direction: row; /* Aligne les icônes horizontalement */
+    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
+    justify-content: space-evenly; /* Répartit les icônes uniformément */
+    gap: 2px; /* Réduit l'espacement entre les icônes */
+    padding: 5px; /* Réduit le padding pour économiser de l'espace */
+    width: 100%; /* La navbar occupe toute la largeur */
+    margin: 0; /* Supprime les marges */
+  }
+
+  .icon-container {
+    width: 25px; /* Réduit la largeur des conteneurs d'icônes */
+    gap: 2px; /* Réduit l'espacement entre l'icône et le texte */
+  }
+
+  .icon {
+    width: 25px; /* Réduit la taille des icônes */
+    height: 25px; /* Assure une hauteur fixe */
+  }
+
+  .icon-text {
+    font-size: 8px; /* Réduit la taille du texte sous les icônes */
+  }
+}
+
+/* Ajustements pour l'iPhone 8 Plus (414x736) */
+@media (max-width: 414px) {
+  .navbar {
+    flex-direction: row; /* Aligne les icônes horizontalement */
+    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
+    justify-content: space-evenly; /* Répartit les icônes uniformément */
+    gap: 5px; /* Réduit l'espacement entre les icônes */
+    padding: 5px; /* Réduit le padding pour économiser de l'espace */
+    width: 100%; /* La navbar occupe toute la largeur */
+    margin: 0; /* Supprime les marges */
+  }
+
+  .icon-container {
+    width: 30px; /* Ajuste la largeur des conteneurs d'icônes */
+    gap: 3px; /* Réduit l'espacement entre l'icône et le texte */
+  }
+
+  .icon {
+    width: 30px; /* Ajuste la taille des icônes */
+    height: 30px; /* Assure une hauteur fixe */
+  }
+
+  .icon-text {
+    font-size: 9px; /* Ajuste la taille du texte sous les icônes */
+  }
+}
 /* Styles pour les écrans moyens (tablettes) */
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
