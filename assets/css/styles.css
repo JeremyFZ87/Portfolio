@@ -629,8 +629,8 @@ h2 {
     gap: 0px; /* Supprime l'espacement global entre les sections */
   }
   footer {
-    height: 30px;;
-    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    height: 34px;;
+    position: relative; /* Fixe le footer en bas de la fenêtre */
     bottom: 0; /* Positionne le footer en bas */
     left: 0; /* Aligne le footer à gauche */
     width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
