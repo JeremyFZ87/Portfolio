@@ -629,7 +629,7 @@ h2 {
     gap: 0px; /* Supprime l'espacement global entre les sections */
   }
   footer {
-    height: 34px;;
+    height: 34px;
     position: relative; /* Fixe le footer en bas de la fenêtre */
     bottom: 0; /* Positionne le footer en bas */
     left: 0; /* Aligne le footer à gauche */
@@ -643,7 +643,7 @@ h2 {
     align-items: center; /* Centre le contenu verticalement */
     padding: 5px 10px; /* Réduit l'espace intérieur */
   }
-  
+
   .navbar {
     flex-direction: row; /* Aligne les icônes horizontalement */
     flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
@@ -789,7 +789,7 @@ h2 {
     flex-wrap: nowrap; /* Permet aux icônes de passer à la ligne */
     justify-content: space-between; /* Centre les icônes horizontalement */
     gap: 1px; /* Réduit l'espacement global entre les icônes */
-    width: 100%; La navbar occupe toute la largeur */
+    width: 100%; /*La navbar occupe toute la largeur */
   }
 
   .icon-container {
@@ -804,7 +804,7 @@ h2 {
 
   .icon-text {
     display: none;
-        font-size: 2px; /* Réduit la taille du texte sous les icônes */
+    font-size: 2px; /* Réduit la taille du texte sous les icônes */
     margin-top: 1px; /* Réduit l'espace entre l'icône et le texte */
   }
 
