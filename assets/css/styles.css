@@ -792,6 +792,22 @@ h2 {
     width: 100%; /*La navbar occupe toute la largeur */
   }
 
+  footer {
+    height: 34px;
+    position: relative; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0; /* Positionne le footer en bas */
+    left: 0; /* Aligne le footer à gauche */
+    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
+    z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
+    background: var(--background-color); /* Couleur de fond du footer */
+    color: var(--text-color); /* Couleur du texte */
+    text-align: center; /* Centre le texte */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    padding: 5px 10px; /* Réduit l'espace intérieur */
+  }
+
   .icon-container {
     width: 16px; /* Réduit la largeur des conteneurs d'icônes */
     gap: 2px; /* Réduit l'espacement autour des conteneurs */
@@ -831,6 +847,22 @@ h2 {
     padding: 5px; /* Réduit le padding pour économiser de l'espace */
     width: 100%; /* La navbar occupe toute la largeur */
     margin: 0; /* Supprime les marges */
+  }
+
+  footer {
+    height: 34px;
+    position: relative; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0; /* Positionne le footer en bas */
+    left: 0; /* Aligne le footer à gauche */
+    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
+    z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
+    background: var(--background-color); /* Couleur de fond du footer */
+    color: var(--text-color); /* Couleur du texte */
+    text-align: center; /* Centre le texte */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    padding: 5px 10px; /* Réduit l'espace intérieur */
   }
 
   .icon-container {
