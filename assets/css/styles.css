@@ -19,14 +19,13 @@
 
 html,
 body {
-  margin: 0px; /* Rétablit les marges par défaut */
-  padding: 0; /* Supprime les paddings */
-  box-sizing: content-box; /* Rétablit le comportement par défaut pour les bordures et paddings */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Rétablit le comportement par défaut pour les bordures et paddings */
+  max-width: none; /* Supprime toute limite de largeur */
 }
 
-* {
-  box-sizing: content-box; /* Rétablit le comportement par défaut pour tous les éléments */
-}
+
 
 /* Styles globaux */
 body {
@@ -35,21 +34,16 @@ body {
   align-items: center; /* Centre horizontalement le contenu */
   gap: 0px; /* Espacement entre les sections */
   min-width: 320px; /* Largeur minimale pour éviter les débordements */
-  max-width: 1440px; /* Largeur maximale */
+  max-width: none; /* Largeur maximale */
   margin: 0 auto; /* Centre le contenu horizontalement */
   padding: 0; /* Supprime les paddings inutiles */
   background-color: var(--background-body-color); /* Couleur de fond */
   color: var(--text-color); /* Couleur du texte */
   font-family: "Inter", sans-serif;
   gap: 0px; /* Supprime l'espacement global entre les sections */
+  height: 100%; /* Nécessaire pour le sticky */
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: var(--background-body-color);
-}
 
 /* Supprime les marges par défaut du header */
 header {
@@ -65,9 +59,10 @@ main {
   align-items: center; /* Centre horizontalement les sections */
   gap: 0px; /* Espacement entre les sections */
   width: 100%; /* Prend toute la largeur disponible */
-  max-width: 1440px; /* Largeur maximale */
+  max-width: auto; /* Largeur maximale */
   margin: 0 auto; /* Centre horizontalement */
   padding-bottom: 40px; /* Ajuste la hauteur pour correspondre au footer */
+  background-color: var(--background-body-color);
 }
 
 /* Ajuste les paddings de la section #hero */
@@ -273,6 +268,7 @@ a:hover {
   justify-content: center;
   gap: 10px;
   flex-shrink: 0;
+  max-width: 100%;
 }
 
 /* Texte dans les balises <p> */
@@ -624,16 +620,108 @@ h2 {
 /* Styles pour les petits écrans (smartphones) */
 @media (max-width: 768px) {
   body {
-    padding: 0px 10px;
-    max-width: 100%; /* Supprime la largeur maximale pour les petits écrans */
-    gap: 0px; /* Supprime l'espacement global entre les sections */
+    padding: 0 10px;
+    max-width: 100%; /* S'assure que le contenu s'adapte à l'écran */
+    gap: 0; /* Supprime l'espacement global entre les sections */
+    height: 100%; /* Nécessaire pour le sticky */
   }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .navbar {
+    display: none; /* Cache la navbar sur les petits écrans */
+    max-width: 100%;
+  }
+
+  .burger-menu {
+    display: flex; /* Aligne les éléments horizontalement */
+    justify-content: flex-start; /* Aligne le texte à gauche */
+    align-items: center; /* Centre verticalement le contenu */
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    height: 80px; /* Hauteur fixe */
+    cursor: pointer;
+    position: sticky; /* Rend le menu collant */
+    top: 0; /* Fixe le menu en haut de l'écran */
+    z-index: 1000; /* Assure qu'il est au-dessus des autres éléments */
+    background: var(--background-gradient); /* Applique le dégradé comme fond */
+    border-radius: 0; /* Supprime les coins arrondis */
+    margin: 0; /* Supprime les marges */
+    padding: 10px 10px; /* Ajoute un padding horizontal */
+    position: relative; /* Nécessaire pour positionner l'icône */
+  }
+
+  .burger-text {
+    font-size: 18px; /* Taille du texte */
+    color: var(--icon-color); /* Couleur du texte */
+    margin-right: 10px; /* Espace entre le texte et l'icône */
+    margin-left: 10px; /* Espace entre le texte et l'icône */
+    font-family: "Inter", sans-serif; /* Police utilisée */
+  }
+
+  .burger-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(
+      --icon-color
+    ); /* Utilise la couleur définie dans les variables CSS */
+    position: absolute; /* Positionne l'icône indépendamment */
+    left: 50%; /* Centre horizontalement l'icône */
+    transform: translateX(-50%); /* Ajuste pour centrer parfaitement */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .burger-dropdown {
+    display: none; /* Cache le menu déroulant par défaut */
+    position: absolute;
+    width: 90vw; /* Prend toute la largeur de l'écran */
+    top: 40px; /* Positionne le menu sous l'icône burger */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Ajuste pour centrer parfaitement */
+    background: var(--background-color); /* Couleur de fond */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    list-style: none; /* Supprime les puces */
+    padding: 10px; /* Ajoute un padding intérieur */
+    z-index: 1000; /* Assure que le menu est au-dessus des autres éléments */
+    text-align: center;
+  }
+
+  .burger-dropdown li {
+    margin: 5px 0;
+    align-items: center;
+  }
+
+  .burger-dropdown li a {
+    color: var(--icon-color);
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--icon-color);
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .burger-dropdown li a:hover {
+    color: var(--icon-over);
+  }
+
+  .burger-menu.active .burger-dropdown {
+    display: block; /* Affiche le menu déroulant lorsque le menu burger est actif */
+  }
+
   footer {
     height: 34px;
     position: relative; /* Fixe le footer en bas de la fenêtre */
     bottom: 0; /* Positionne le footer en bas */
     left: 0; /* Aligne le footer à gauche */
-    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
+    width: 100vw; /* Le footer occupe toute la largeur de la fenêtre */
     z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
     background: var(--background-color); /* Couleur de fond du footer */
     color: var(--text-color); /* Couleur du texte */
@@ -644,51 +732,61 @@ h2 {
     padding: 5px 10px; /* Réduit l'espace intérieur */
   }
 
+  .burger-text {
+    font-size: 16px; /* Taille du texte */
+    color: var(--icon-color); /* Couleur du texte */
+    margin-right: 10px; /* Espace entre le texte et l'icône */
+    font-family: "Inter", sans-serif; /* Police utilisée */
+  }
+
+  .burger-icon {
+    width: 30px;
+    height: 30px;
+  }
+
   .navbar {
+    display: none; /* Cache la navbar */
     flex-direction: row; /* Aligne les icônes horizontalement */
-    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
-    justify-content: space-evenly; /* Répartit les icônes uniformément */
-    gap: 2px; /* Réduit l'espacement entre les icônes */
-    padding: 5px; /* Réduit le padding pour économiser de l'espace */
-    width: 100%; /* La navbar occupe toute la largeur */
-    margin: 0; /* Supprime les marges */
+    flex-wrap: wrap; /* Permet aux icônes de passer à la ligne */
+    justify-content: center; /* Centre les icônes horizontalement */
+    gap: 5px; /* Réduit l'espacement entre les icônes */
+    padding: 10px 0; /* Ajoute un padding vertical */
+    width: 100%;
+    margin: 0;
   }
 
   .icon-container {
-    width: 35px; /* Réduit la taille des conteneurs d'icônes */
-    gap: 1px; /* Réduit l'espacement entre l'icône et le texte */
+    width: 40px; /* Ajuste la largeur des conteneurs d'icônes */
+    gap: 2px; /* Réduit l'espacement entre l'icône et le texte */
+    margin: 5px; /* Ajoute un espacement autour des conteneurs */
   }
 
   .icon {
-    width: 25px; /* Réduit la taille des icônes */
-    height: 25px; /* Assure une hauteur fixe */
+    width: 30px; /* Ajuste la taille des icônes */
+    height: 30px;
   }
 
   .icon-text {
-    font-size: 7px; /* Réduit la taille du texte sous les icônes */
+    font-size: 8px; /* Réduit la taille du texte sous les icônes */
+    margin-top: 2px;
   }
 
   .icon-menu {
+    display: flex;
     flex-wrap: wrap; /* Permet aux icônes de passer à la ligne */
     justify-content: center;
+    gap: 10px; /* Ajoute un espacement entre les icônes */
   }
 
-  #hero .hero {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%; /* Prend toute la largeur disponible */
+    #hero .hero-info img[alt="Logo Ferdz"] {
+    width: 124px;
+    height: 47px;
+    margin-left: 0px;
   }
 
   .profil-picture {
     width: 150px;
     height: 150px;
-  }
-
-  #hero .hero-info img[alt="Logo Ferdz"] {
-    width: 124px;
-    height: 47px;
-    margin-left: 0px;
   }
 
   .hero-info h1 {
@@ -705,8 +803,15 @@ h2 {
     border-radius: 5px;
   }
 
+
+    .carousel-images img {
+    border-radius: 5px;
+  }
+
   .illustration {
     padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .illustration-image {
@@ -733,7 +838,6 @@ h2 {
   #presentation {
     max-width: 100%; /* Supprime la largeur maximale pour s'adapter à l'écran */
     padding: 10px; /* Ajoute un padding pour éviter que le contenu touche les bords */
-    margin: 0; /* Supprime les marges externes */
   }
 
   #hero .hero-info {
@@ -782,118 +886,52 @@ h2 {
   }
 }
 
-/* Ajustements pour les très petits écrans (iPhone 8) */
-@media (max-width: 375px) {
-  .navbar {
-    flex-direction: row; /* Aligne les icônes horizontalement */
-    flex-wrap: nowrap; /* Permet aux icônes de passer à la ligne */
-    justify-content: space-between; /* Centre les icônes horizontalement */
-    gap: 1px; /* Réduit l'espacement global entre les icônes */
-    width: 100%; /*La navbar occupe toute la largeur */
-  }
+  main {
+    flex: 1; /* Permet au contenu principal de s'étendre pour occuper l'espace disponible */
+     }
 
-  footer {
-    height: 34px;
-    position: relative; /* Fixe le footer en bas de la fenêtre */
-    bottom: 0; /* Positionne le footer en bas */
-    left: 0; /* Aligne le footer à gauche */
-    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
-    z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
-    background: var(--background-color); /* Couleur de fond du footer */
-    color: var(--text-color); /* Couleur du texte */
-    text-align: center; /* Centre le texte */
+  #contact-links {
     display: flex;
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-    padding: 5px 10px; /* Réduit l'espace intérieur */
+    flex-direction: column;
+    justify-content: center; /* Centre verticalement le contenu si nécessaire */
+    align-items: center; /* Centre horizontalement le contenu */
+    flex: 1; /* Permet à la section de s'étendre pour occuper l'espace disponible */
+    padding: 20px;
   }
 
-  .icon-container {
-    width: 16px; /* Réduit la largeur des conteneurs d'icônes */
-    gap: 2px; /* Réduit l'espacement autour des conteneurs */
-  }
-
-  .icon {
-    width: 16px; /* Réduit la taille des icônes */
-    height: 16px; /* Assure une hauteur fixe */
-  }
-
-  .icon-text {
-    display: none;
-    font-size: 2px; /* Réduit la taille du texte sous les icônes */
-    margin-top: 1px; /* Réduit l'espace entre l'icône et le texte */
-  }
-
-  ul.icon-menu {
-    display: flex; /* Utilise Flexbox pour aligner les icônes horizontalement */
-    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne suivante */
-    justify-content: space-evenly; /* Répartit les icônes uniformément */
-    align-items: center; /* Centre les icônes verticalement */
-    gap: 16px; /* Réduit l'espacement entre les icônes */
-    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
-    padding: 0; /* Supprime le padding par défaut */
-    margin: 0 auto; /* Centre la liste horizontalement */
-    width: 100%; /* Assure que la liste occupe toute la largeur */
+  .contact-page .burger-menu {
+    height: 38px; /* Uniformise la hauteur avec les autres pages */
+    padding: 0; /* Supprime les paddings */
   }
 }
 
-/* Ajustements pour l'iPhone 8 Plus (414x736) */
-@media (max-width: 414px) {
-  .navbar {
-    flex-direction: row; /* Aligne les icônes horizontalement */
-    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne */
-    justify-content: space-evenly; /* Répartit les icônes uniformément */
-    gap: 5px; /* Réduit l'espacement entre les icônes */
-    padding: 5px; /* Réduit le padding pour économiser de l'espace */
-    width: 100%; /* La navbar occupe toute la largeur */
-    margin: 0; /* Supprime les marges */
-  }
-
-  footer {
-    height: 34px;
-    position: relative; /* Fixe le footer en bas de la fenêtre */
-    bottom: 0; /* Positionne le footer en bas */
-    left: 0; /* Aligne le footer à gauche */
-    width: 100%; /* Le footer occupe toute la largeur de la fenêtre */
-    z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
-    background: var(--background-color); /* Couleur de fond du footer */
-    color: var(--text-color); /* Couleur du texte */
-    text-align: center; /* Centre le texte */
-    display: flex;
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-    padding: 5px 10px; /* Réduit l'espace intérieur */
-  }
-
-  .icon-container {
-    width: 30px; /* Ajuste la largeur des conteneurs d'icônes */
-    gap: 3px; /* Réduit l'espacement entre l'icône et le texte */
-  }
-
-  .icon {
-    width: 30px; /* Ajuste la taille des icônes */
-    height: 30px; /* Assure une hauteur fixe */
-  }
-
-  .icon-text {
-    font-size: 9px; /* Ajuste la taille du texte sous les icônes */
-  }
-}
 /* Styles pour les écrans moyens (tablettes) */
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
-    padding: 0px;
-    max-width: 100%;
+     margin: 0; /* Supprime les marges globales */
+    padding: 0; /* Supprime les paddings globaux */
+    max-width: none;
     gap: 0px; /* Supprime l'espacement global entre les sections */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
   }
 
   .navbar {
-    flex-direction: row; /* Aligne les icônes horizontalement */
-    justify-content: space-around; /* Ajoute de l'espace entre les icônes */
+    background: var(--background-gradient); /* Dégradé pour la navbar */
+    display: flex;
+    height: 108px; /* Hauteur fixe */
+    padding: 10px 0; /* Réduit le padding vertical */
+    margin: 0 auto; /* Supprime les marges */
+    align-items: center; /* Centre verticalement les icônes */
+    justify-content: space-between; /* Ajoute de l'espace entre les icônes */
     gap: 15px; /* Ajuste l'espacement entre les icônes */
-    padding: 10px 20px; /* Ajuste le padding pour les tablettes */
-    width: 100%; /* La navbar occupe toute la largeur */
-    margin: 0; /* Supprime les marges */
+    width: 100%; /* La navbar occupe toute la largeur de la fenêtre */
+    max-width: 100%; /* Respecte la largeur maximale définie */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
   }
 
   .icon-container {
@@ -908,11 +946,6 @@ h2 {
 
   .icon-text {
     font-size: 12px; /* Taille du texte légèrement plus grande */
-  }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-around;
   }
 
   #hero .hero {
@@ -983,12 +1016,24 @@ h2 {
     width: 60px; /* Taille des badges pour tablettes et plus */
     height: 60px;
   }
+
+  .icon-menu {
+    display: flex; /* Active flexbox pour aligner les icônes */
+    flex-wrap: wrap; /* Permet aux icônes de passer à la ligne si nécessaire */
+    justify-content: center; /* Centre les icônes horizontalement */
+    align-items: center; /* Centre les icônes verticalement */
+    gap: 15px; /* Ajoute un espacement entre les icônes */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0; /* Supprime les marges par défaut */
+    width: 100%; /* Prend toute la largeur disponible */
+    list-style: none; /* Supprime les puces */
+  }
 }
 
 /* Styles pour les grands écrans (ordinateurs) */
 @media (min-width: 1025px) {
   body {
-    max-width: 1440px;
+    max-width: 100%;
     margin: 0 auto;
     gap: 0px; /* Supprime l'espacement global entre les sections */
   }
@@ -997,7 +1042,7 @@ h2 {
     flex-direction: row; /* Aligne les icônes horizontalement */
     justify-content: space-between; /* Espace entre les icônes */
     gap: 20px; /* Espacement entre les icônes */
-    padding: 14px 1440px; /* Conserve le padding pour les grands écrans */
+    padding: 14px 100%; /* Conserve le padding pour les grands écrans */
   }
 
   .icon-container {
@@ -1048,5 +1093,16 @@ h2 {
 
   .illustration-image {
     width: 100%;
+  }
+}
+
+/* Styles pour les écrans moyens (tablettes) et grands écrans (desktop) */
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none; /* Cache le menu burger */
+  }
+
+  .burger-dropdown {
+    display: none; /* Cache le menu déroulant */
   }
 }

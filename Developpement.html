@@ -4,10 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Développement</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <!-- Lien vers un fichier CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+        <!-- Lien vers un fichier CSS -->
   </head>
   <body>
+    <div class="burger-menu">
+      <span class="burger-text">Menu</span>
+      <svg class="burger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <rect x="3" y="6" width="36" height="2" rx="1" fill="var(--icon-color)" />
+        <rect x="3" y="11" width="36" height="2" rx="1" fill="var(--icon-color)" />
+        <rect x="3" y="16" width="36" height="2" rx="1" fill="var(--icon-color)" />
+      </svg>
+      <ul class="burger-dropdown">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Conception_Produit.html">Conception Produit</a></li>
+        <li><a href="Developpement.html">Développement</a></li>
+        <li><a href="Video.html">Vidéo</a></li>
+        <li><a href="Musique.html">Musique</a></li>
+        <li><a href="Menuiserie.html">Menuiserie</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
     <div class="navbar">
       <ul class="icon-menu">
         <!-- Accueil -->
@@ -288,5 +305,6 @@
         })();
       </script>
     </footer>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>
