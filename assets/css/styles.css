@@ -25,8 +25,6 @@ body {
   max-width: none; /* Supprime toute limite de largeur */
 }
 
-
-
 /* Styles globaux */
 body {
   display: flex;
@@ -43,7 +41,6 @@ body {
   gap: 0px; /* Supprime l'espacement global entre les sections */
   height: 100%; /* Nécessaire pour le sticky */
 }
-
 
 /* Supprime les marges par défaut du header */
 header {
@@ -778,7 +775,7 @@ h2 {
     gap: 10px; /* Ajoute un espacement entre les icônes */
   }
 
-    #hero .hero-info img[alt="Logo Ferdz"] {
+  #hero .hero-info img[alt="Logo Ferdz"] {
     width: 124px;
     height: 47px;
     margin-left: 0px;
@@ -803,8 +800,7 @@ h2 {
     border-radius: 5px;
   }
 
-
-    .carousel-images img {
+  .carousel-images img {
     border-radius: 5px;
   }
 
@@ -884,11 +880,10 @@ h2 {
     font-size: 12px; /* Réduit la taille du texte */
     text-align: center;
   }
-}
 
   main {
     flex: 1; /* Permet au contenu principal de s'étendre pour occuper l'espace disponible */
-     }
+  }
 
   #contact-links {
     display: flex;
@@ -908,14 +903,15 @@ h2 {
 /* Styles pour les écrans moyens (tablettes) */
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
-     margin: 0; /* Supprime les marges globales */
+    margin: 0; /* Supprime les marges globales */
     padding: 0; /* Supprime les paddings globaux */
     max-width: none;
     gap: 0px; /* Supprime l'espacement global entre les sections */
     overflow-x: hidden; /* Empêche le défilement horizontal */
   }
 
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
   }
